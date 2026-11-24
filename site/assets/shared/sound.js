@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 const SOUND_KEY = 'all2k_wheel_sound';
 
 let ctx = null;

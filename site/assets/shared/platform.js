@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 import { createQrSvg } from './qr.js';
 import { LATEST_PAGE_URL } from './release.js';
 import { t } from './i18n.js';
@@ -140,7 +142,7 @@ export function initSmartDownload({ getRelease }) {
       try {
         qrFrame.append(createQrSvg(shareUrl, { label: `QR code for ${shareUrl}`, sizePx: 176 }));
       } catch {
-        /* if URL unexpectedly exceeds V10, still keep copy/share */
+        /* keep copy and share controls available if url exceeds v10 capacity */
       }
       const qrUrl = document.createElement('small');
       qrUrl.textContent = shareUrl;
@@ -243,7 +245,6 @@ export function initSmartDownload({ getRelease }) {
     closeBtn.focus();
   }
 
-  // Intercept download triggers cleanly
   document.addEventListener('click', (e) => {
     const link = e.target.closest('[data-dl]');
     if (!link) return;
@@ -253,16 +254,15 @@ export function initSmartDownload({ getRelease }) {
       e.preventDefault();
       openDownloadSheet(link);
     } else if (release && release.isDirectApk) {
-      // Browser handles <a download> in background; show 3-step install sheet immediately
+      // let native download start while showing install steps
       openDownloadSheet(link);
     } else {
-      // Fallback releases/latest HTML page: show 3-step sheet with direct link so page stays open
+      // keep page open and show direct link when no apk asset was resolved
       e.preventDefault();
       openDownloadSheet(link);
     }
   });
 
-  // Update inline non-Android notice & inline digest box if present in DOM
   function syncInlineSmartUI() {
     const notice = document.querySelector('[data-platform-note]');
     if (notice) {

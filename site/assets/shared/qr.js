@@ -1,7 +1,5 @@
-/**
- * Self-contained ISO/IEC 18004 QR Code SVG generator (Byte mode, EC Level M, Versions 1-10).
- * Zero external dependencies.
- */
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+/* byte-mode ec-m qr encoder for versions 1-10 */
 
 const GF_EXP = new Uint8Array(512);
 const GF_LOG = new Uint8Array(256);
@@ -52,7 +50,7 @@ function rsRemainder(data, ecCount) {
   return res.slice(data.length);
 }
 
-// Version 1..10 tables for EC Level M: [totalDataBytes, ecPerBlock, g1Blocks, g1Data, g2Blocks, g2Data, alignCoords, remBits]
+// [totalDataBytes, ecPerBlock, g1Blocks, g1Data, g2Blocks, g2Data, alignCoords, remBits]
 const VERSION_TABLE_M = [
   null,
   [16, 10, 1, 16, 0, 0, [], 0],
@@ -68,7 +66,7 @@ const VERSION_TABLE_M = [
 ];
 
 function bchFormatInfo(mask) {
-  // EC Level M = 00
+  // ec level m encodes as 00 prefix before bch
   const data = mask & 7;
   let d = data << 10;
   for (let i = 4; i >= 0; i--) {
@@ -90,7 +88,7 @@ function encodeBytes(text) {
   let version = 0;
   for (let v = 1; v <= 10; v++) {
     const cap = VERSION_TABLE_M[v][0];
-    const headerBytes = v <= 9 ? 2 : 3; // 4-bit mode + 8/16-bit count -> fits with terminator inside cap
+    const headerBytes = v <= 9 ? 2 : 3; // 4-bit mode plus 8- or 16-bit length header
     if (bytes.length + headerBytes <= cap) {
       version = v;
       break;
@@ -106,19 +104,13 @@ function encodeBytes(text) {
     for (let i = len - 1; i >= 0; i--) bits.push((val >>> i) & 1);
   };
 
-  // Mode: Byte (0100)
   pushBits(0b0100, 4);
-  // Character count
   pushBits(bytes.length, version <= 9 ? 8 : 16);
-  // Payload bytes
   for (const b of bytes) pushBits(b, 8);
-  // Terminator up to 4 bits
   const maxBits = totalData * 8;
   const term = Math.min(4, maxBits - bits.length);
   pushBits(0, term);
-  // Pad to byte boundary
   while (bits.length % 8 !== 0) bits.push(0);
-  // Pad codewords 0xEC, 0x11
   let padIdx = 0;
   while (bits.length < maxBits) {
     pushBits(padIdx % 2 === 0 ? 0xec : 0x11, 8);
@@ -132,7 +124,6 @@ function encodeBytes(text) {
     codewords[i] = val;
   }
 
-  // Split into blocks and compute RS error correction
   const dataBlocks = [];
   const ecBlocks = [];
   let offset = 0;
@@ -195,17 +186,15 @@ function createMatrix(version) {
   placeFinder(0, size - 7);
   placeFinder(size - 7, 0);
 
-  // Timing patterns
   for (let i = 8; i < size - 8; i++) {
     const bit = i % 2 === 0 ? 1 : 0;
     setFunc(6, i, bit);
     setFunc(i, 6, bit);
   }
 
-  // Dark module
   setFunc(size - 8, 8, 1);
 
-  // Alignment patterns (skip only the 3 finder corners, not timing patterns)
+  // skip finder corners only; overlap with timing strip is valid in spec
   const align = VERSION_TABLE_M[version][6];
   for (const r0 of align) {
     for (const c0 of align) {
@@ -219,7 +208,6 @@ function createMatrix(version) {
     }
   }
 
-  // Reserve format info cells
   for (let i = 0; i < 9; i++) {
     if (i !== 6) {
       if (!isFunc[8][i]) setFunc(8, i, 0);
@@ -231,7 +219,6 @@ function createMatrix(version) {
     if (i < 7 && !isFunc[size - 1 - i][8]) setFunc(size - 1 - i, 8, 0);
   }
 
-  // Version info (>= 7)
   if (version >= 7) {
     const vbits = bchVersionInfo(version);
     for (let i = 0; i < 18; i++) {
@@ -282,14 +269,13 @@ const MASKS = [
 
 function applyFormatInfo(size, grid, mask) {
   const fmt = bchFormatInfo(mask);
-  // Copy 1: top-left (MSB bit 14 at [8][0] -> LSB bit 0 at [0][8])
+  // msb-first format placement (top-left copy)
   for (let i = 0; i <= 5; i++) grid[8][i] = (fmt >>> (14 - i)) & 1;
   grid[8][7] = (fmt >>> 8) & 1;
   grid[8][8] = (fmt >>> 7) & 1;
   grid[7][8] = (fmt >>> 6) & 1;
   for (let i = 0; i <= 5; i++) grid[5 - i][8] = (fmt >>> (5 - i)) & 1;
 
-  // Copy 2: bottom-left (bits 14..8) and top-right (bits 7..0)
   for (let i = 0; i < 7; i++) grid[size - 1 - i][8] = (fmt >>> (14 - i)) & 1;
   for (let i = 0; i < 8; i++) grid[8][size - 8 + i] = (fmt >>> (7 - i)) & 1;
 }
@@ -297,7 +283,6 @@ function applyFormatInfo(size, grid, mask) {
 function penaltyScore(size, grid) {
   let score = 0;
 
-  // N1: 5+ consecutive same color in row/col
   for (let r = 0; r < size; r++) {
     let runColor = grid[r][0], runLen = 1;
     for (let c = 1; c < size; c++) {
@@ -325,7 +310,6 @@ function penaltyScore(size, grid) {
     if (runLen >= 5) score += 3 + (runLen - 5);
   }
 
-  // N2: 2x2 blocks
   for (let r = 0; r < size - 1; r++) {
     for (let c = 0; c < size - 1; c++) {
       const v = grid[r][c];
@@ -335,7 +319,6 @@ function penaltyScore(size, grid) {
     }
   }
 
-  // N3: finder-like patterns 1011101 + 4 zeros
   const checkLine = (arr) => {
     for (let i = 0; i <= arr.length - 11; i++) {
       const a =
@@ -356,7 +339,6 @@ function penaltyScore(size, grid) {
     checkLine(col);
   }
 
-  // N4: dark ratio
   let dark = 0;
   for (let r = 0; r < size; r++) {
     for (let c = 0; c < size; c++) if (grid[r][c] === 1) dark++;

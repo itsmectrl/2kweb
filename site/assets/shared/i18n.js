@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 const LANG_KEY = 'all2k_lang';
 const SUPPORTED = ['en', 'fr', 'ar'];
 const cache = new Map();
@@ -38,7 +40,7 @@ export async function loadLanguage(lang, { apply = true } = {}) {
         cache.set(target, await res.json());
       }
     } catch {
-      /* fallback to inline English DOM */
+      /* keep inline dom copy when locale fetch fails */
     }
   }
 

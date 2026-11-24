@@ -1,8 +1,10 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 import { isSoundEnabled, toggleSound, playClick } from './sound.js';
 import { getTheme, toggleTheme } from './platform.js';
 import { getLang, loadLanguage, t, onLangChange } from './i18n.js';
 
-const DETENT_RAD = Math.PI / 6; // 30 degrees per detent
+const DETENT_RAD = Math.PI / 6;
 
 export function mountWheel({
   mode = 'desktop',
@@ -20,7 +22,7 @@ export function mountWheel({
   const shell = document.createElement('div');
   shell.className = 'wheel-shell';
 
-  // Interactive drag ring (only touch-action: none target)
+  // keep touch-action: none isolated to the ring so page scroll still works outside it
   const ring = document.createElement('div');
   ring.className = 'wheel-ring';
   ring.setAttribute('role', 'slider');
@@ -65,7 +67,6 @@ export function mountWheel({
   notch.className = 'wheel-notch';
   notch.setAttribute('aria-hidden', 'true');
 
-  // Four cardinal buttons
   const btnMenu = document.createElement('button');
   btnMenu.type = 'button';
   btnMenu.className = 'wheel-btn wheel-top';
@@ -99,7 +100,6 @@ export function mountWheel({
 
   shell.append(ring, svg, notch, btnMenu, btnPrev, btnNext, btnPlay, btnCenter);
 
-  // Controls row under the wheel: Sound toggle + Negative mode quick toggle (or mini expand)
   const controls = document.createElement('div');
   controls.className = 'wheel-controls';
 
@@ -127,7 +127,6 @@ export function mountWheel({
   dock.append(shell, controls, miniExpandBtn);
   document.body.append(dock);
 
-  // Wheel rotation & detents (Pointer Events only)
   let dragging = false;
   let pointerId = null;
   let lastAngle = 0;
@@ -183,7 +182,7 @@ export function mountWheel({
     if (delta < -Math.PI) delta += Math.PI * 2;
 
     const dt = Math.max(8, now - lastTime) / 1000;
-    const velocity = Math.abs(delta) / dt; // rad/s
+    const velocity = Math.abs(delta) / dt;
 
     lastAngle = angle;
     lastTime = now;
@@ -211,7 +210,6 @@ export function mountWheel({
   ring.addEventListener('pointerup', endDrag);
   ring.addEventListener('pointercancel', endDrag);
 
-  // Keyboard support for ring
   ring.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowDown' || e.key === 'ArrowRight') {
       e.preventDefault();
@@ -226,7 +224,6 @@ export function mountWheel({
     }
   });
 
-  // Scroll progress sync
   function syncProgress() {
     const max = Math.max(1, document.documentElement.scrollHeight - window.innerHeight);
     const pct = Math.min(1, Math.max(0, window.scrollY / max));
@@ -238,7 +235,6 @@ export function mountWheel({
   window.addEventListener('resize', syncProgress, { passive: true });
   syncProgress();
 
-  // Section prev/next helpers
   function getSectionElements() {
     return sections
       .map((s) => ({ ...s, el: document.querySelector(s.selector) }))
@@ -262,13 +258,11 @@ export function mountWheel({
   btnPrev.addEventListener('click', () => jumpSection(-1));
   btnNext.addEventListener('click', () => jumpSection(1));
 
-  // Center = Download
   btnCenter.addEventListener('click', () => {
     feedbackTick();
     onDownload(btnCenter);
   });
 
-  // Bottom = Play / Pause animations
   let paused = false;
   btnPlay.addEventListener('click', () => {
     paused = !paused;
@@ -278,7 +272,6 @@ export function mountWheel({
     feedbackTick();
   });
 
-  // MENU sheet (sections + Negative mode + Sound + Language)
   let menuBackdrop = null;
   function closeMenu() {
     if (!menuBackdrop) return;
@@ -325,7 +318,6 @@ export function mountWheel({
     head.append(h2, closeBtn);
     panel.append(head);
 
-    // Section list
     const nav = document.createElement('nav');
     nav.className = 'sheet-nav';
     nav.setAttribute('aria-label', 'Page sections');
@@ -347,11 +339,9 @@ export function mountWheel({
     });
     panel.append(nav);
 
-    // Tools: Negative mode, Sound, Language
     const tools = document.createElement('div');
     tools.className = 'sheet-tools';
 
-    // Negative mode row
     const themeRow = document.createElement('div');
     themeRow.className = 'tool-row';
     const themeLbl = document.createElement('span');
@@ -374,7 +364,6 @@ export function mountWheel({
     });
     themeRow.append(themeLbl, themeBtn);
 
-    // Sound row
     const soundRow = document.createElement('div');
     soundRow.className = 'tool-row';
     const soundLbl = document.createElement('span');
@@ -397,7 +386,6 @@ export function mountWheel({
     });
     soundRow.append(soundLbl, soundMenuBtn);
 
-    // Language row
     const langRow = document.createElement('div');
     langRow.className = 'tool-row';
     const langLbl = document.createElement('span');
@@ -437,7 +425,6 @@ export function mountWheel({
 
   btnMenu.addEventListener('click', openMenu);
 
-  // Mobile landscape / on-screen keyboard collapse to mini-wheel
   let userExpandedMini = false;
   function updateMiniState() {
     if (mode !== 'mobile') return;

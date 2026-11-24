@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 export const LATEST_PAGE_URL = 'https://github.com/itsmectrl/All2K-new/releases/latest';
 const API_URL = 'https://api.github.com/repos/itsmectrl/All2K-new/releases/latest';
 const CACHE_KEY = 'all2k_release_cache_v1';

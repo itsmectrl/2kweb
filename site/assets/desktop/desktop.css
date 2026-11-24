@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 @layer components {
   .wrap {
     max-width: 1120px;
@@ -6,7 +8,7 @@
     position: relative;
   }
 
-  /* Static grain texture (compositor-friendly, zero layout thrash) */
+  /* transform-only grain layer avoids layout repaints */
   body::after {
     content: "";
     position: fixed;
@@ -30,7 +32,6 @@
   @keyframes bounce { 50% { transform: translateY(5px); } }
   @keyframes tw { 50% { transform: scale(0.45); opacity: 0.35; } }
 
-  /* Intro preloader */
   #pre { display: none; }
   .js #pre {
     position: fixed;
@@ -62,7 +63,6 @@
     font-size: 12px;
   }
 
-  /* Scroll progress & custom cursor */
   .prog {
     position: fixed;
     top: 0;
@@ -101,7 +101,6 @@
     }
   }
 
-  /* Header */
   header {
     position: sticky;
     top: 0;
@@ -196,7 +195,6 @@
     outline: 2px solid var(--header-fg);
   }
 
-  /* Buttons */
   .btn {
     --bg: var(--ink);
     --fg: var(--paper);
@@ -258,7 +256,6 @@
     max-width: 460px;
   }
 
-  /* Hero */
   .hero {
     position: relative;
     padding: 68px 0 92px;
@@ -432,7 +429,6 @@
   .spk-3 { top: 14%; left: 8%; color: var(--paper); }
   .spk-4 { top: 22%; right: 9%; animation-delay: -1s; color: var(--paper); }
 
-  /* Tapes */
   .tapes {
     position: relative;
     height: 210px;
@@ -468,7 +464,6 @@
   }
   .t2 .m { animation-direction: reverse; }
 
-  /* Sections */
   section { padding: 90px 0; }
   section.dark-specs { padding: 70px 0; }
   section.faq-sec { padding-top: 10px; }

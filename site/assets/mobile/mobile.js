@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 import { fetchLatestRelease, applyReleaseLinks } from '../shared/release.js';
 import { initSmartDownload, toggleTheme, getTheme, getShareSiteUrl } from '../shared/platform.js';
 import { mountWheel } from '../shared/wheel.js';
@@ -12,12 +14,11 @@ if (saveData) {
   root.dataset.anim = 'paused';
 }
 
-/* 1. Marquee text */
 $('[data-m]').forEach((m) => {
   m.textContent = m.dataset.m.repeat(8);
 });
 
-/* 2. Pause off-screen animations & tab hidden for mid-range Android battery/perf */
+/* pause off-screen animations to save battery */
 const animEls = $('[data-anim-observe]');
 if (animEls.length && 'IntersectionObserver' in window) {
   const animIO = new IntersectionObserver(
@@ -39,7 +40,6 @@ document.addEventListener('visibilitychange', () => {
   }
 });
 
-/* 3. Draggable Hero Skateboard (swipe up = kickflip, swipe sideways = shove-it, combo counter) */
 const stage = document.getElementById('m-stage');
 const deckWrap = document.getElementById('m-deck');
 const deckInner = document.getElementById('m-deck-inner');
@@ -153,7 +153,6 @@ if (stage) {
 document.getElementById('btn-flip')?.addEventListener('click', () => triggerTrick('flip'));
 document.getElementById('btn-spin')?.addEventListener('click', () => triggerTrick('shove-r'));
 
-/* 4. Why Carousel Dots Sync */
 const carousel = document.getElementById('why-carousel');
 const dotButtons = $('[data-slide-dot]');
 if (carousel && dotButtons.length) {
@@ -193,7 +192,6 @@ if (carousel && dotButtons.length) {
   );
 }
 
-/* 5. Share Button in Final CTA */
 const shareBtn = document.getElementById('m-share-btn');
 if (shareBtn) {
   shareBtn.addEventListener('click', async () => {
@@ -223,7 +221,6 @@ if (shareBtn) {
   });
 }
 
-/* 6. Negative Mode, View Override, Language Picker */
 const themeButtons = $('[data-theme-toggle]');
 const syncThemeButtons = () => {
   const neg = getTheme() === 'negative';
@@ -263,7 +260,6 @@ langButtons.forEach((btn) => {
 });
 onLangChange(syncLangButtons);
 
-/* 7. Inline SHA-256 copy button */
 document.querySelector('[data-inline-copy]')?.addEventListener('click', async (e) => {
   const hash = document.querySelector('[data-inline-hash]')?.textContent || '';
   if (!hash) return;
@@ -280,7 +276,6 @@ document.querySelector('[data-inline-copy]')?.addEventListener('click', async (e
   }
 });
 
-/* 8. Release API + Smart Download + Thumb-Zone Click Wheel */
 let currentRelease = null;
 const smart = initSmartDownload({ getRelease: () => currentRelease });
 

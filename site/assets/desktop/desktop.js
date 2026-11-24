@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 import { fetchLatestRelease, applyReleaseLinks } from '../shared/release.js';
 import { initSmartDownload, toggleTheme, getTheme } from '../shared/platform.js';
 import { mountWheel } from '../shared/wheel.js';
@@ -8,7 +10,6 @@ const root = document.documentElement;
 const reducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 const saveData = Boolean(navigator.connection && navigator.connection.saveData);
 
-/* 1. Fast preloader counter */
 const pre = document.getElementById('pre');
 const cnt = document.getElementById('cnt');
 let done = false;
@@ -36,7 +37,6 @@ if (reducedMotion || saveData) {
   setTimeout(finishPre, 1400);
 }
 
-/* 2. Split headline into animated characters */
 const splitNode = (n, c = { i: 0 }) => {
   [...n.childNodes].forEach((k) => {
     if (k.nodeType === 3) {
@@ -69,12 +69,10 @@ $('[data-split]').forEach((h) => {
   splitNode(h);
 });
 
-/* 3. Marquee text */
 $('[data-m]').forEach((m) => {
   m.textContent = m.dataset.m.repeat(10);
 });
 
-/* 4. Reveal on scroll */
 const rvObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((e) => {
@@ -88,7 +86,6 @@ const rvObserver = new IntersectionObserver(
 );
 $('.rv').forEach((el) => rvObserver.observe(el));
 
-/* 5. Scroll progress bar & watermark */
 const prog = $('.prog')[0];
 let ticking = false;
 const onScroll = () => {
@@ -109,7 +106,6 @@ window.addEventListener(
   { passive: true }
 );
 
-/* 6. Custom cursor (pointer: fine only) */
 const cur = $('.cur')[0];
 if (cur && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !reducedMotion) {
   let x = 0;
@@ -140,7 +136,6 @@ if (cur && window.matchMedia('(hover: hover) and (pointer: fine)').matches && !r
   });
 }
 
-/* 7. Magnetic buttons */
 if (!reducedMotion) {
   $('.mag').forEach((b) => {
     b.addEventListener('mousemove', (e) => {
@@ -155,7 +150,6 @@ if (!reducedMotion) {
   });
 }
 
-/* 8. Skateboard mouse tilt + kickflip */
 const art = $('.art')[0];
 const tilt = $('.tilt')[0];
 const deck = $('.deck')[0];
@@ -202,7 +196,6 @@ if (art && tilt && deck) {
   });
 }
 
-/* 9. Negative mode & view override buttons */
 const themeButtons = $('[data-theme-toggle]');
 const syncThemeButtons = () => {
   const neg = getTheme() === 'negative';
@@ -230,7 +223,6 @@ $('[data-switch-view]').forEach((link) => {
   });
 });
 
-/* 10. Language picker in footer */
 const langButtons = $('[data-lang-btn]');
 const syncLangButtons = () => {
   const curLang = getLang();
@@ -243,7 +235,6 @@ langButtons.forEach((btn) => {
 });
 onLangChange(syncLangButtons);
 
-/* 11. Inline SHA-256 copy button */
 const inlineCopy = document.querySelector('[data-inline-copy]');
 if (inlineCopy) {
   inlineCopy.addEventListener('click', async () => {
@@ -262,7 +253,6 @@ if (inlineCopy) {
   });
 }
 
-/* 12. Release API + Smart Download + Click Wheel */
 let currentRelease = null;
 const smart = initSmartDownload({ getRelease: () => currentRelease });
 
@@ -289,7 +279,6 @@ fetchLatestRelease().then((rel) => {
 
 initI18n().then(syncLangButtons);
 
-/* 13. Pause offscreen animations & tab hidden */
 document.addEventListener('visibilitychange', () => {
   if (document.hidden) {
     root.dataset.tabHidden = '1';

@@ -1,3 +1,5 @@
+/* Copyright (c) 2026 itsmectrl. All Rights Reserved. */
+
 @layer tokens, base, components, utilities;
 
 @font-face {
@@ -198,7 +200,6 @@
     color: transparent;
   }
 
-  /* Shared Click-Wheel Dock */
   .wheel-dock {
     position: fixed;
     z-index: 80;
@@ -425,7 +426,7 @@
     padding: 6px 12px;
   }
 
-  /* Collapsed mini-wheel for mobile landscape / virtual keyboard */
+  /* collapse wheel when landscape height or virtual keyboard shrinks viewport */
   .wheel-dock.is-mini {
     flex-direction: row;
     gap: 8px;
@@ -457,7 +458,6 @@
     padding: 0 12px;
   }
 
-  /* Wheel Menu Sheet & Smart Download Sheet */
   .sheet-backdrop {
     position: fixed;
     inset: 0;
@@ -709,7 +709,6 @@
     }
   }
 
-  /* Pause animations state via Wheel play/pause or offscreen/hidden */
   :root[data-anim="paused"] *,
   :root[data-anim="paused"] *::before,
   :root[data-anim="paused"] *::after {
