@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'sha256-vMjOecCOcvsy0p2bn9UN0CSgaETVdyqIPlf1jCdU6xc='; style-src 'self'; img-src 'self' data:; font-src 'self'; connect-src 'self' https://api.github.com; object-src 'none'; base-uri 'self'; form-action 'self'">
+  <script>(() => {
+    const r = document.documentElement;
+    r.classList.add('js');
+    try {
+      const st = localStorage.getItem('all2k_theme');
+      const dk = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      r.dataset.theme = (st === 'negative' || st === 'positive') ? st : (dk ? 'negative' : 'positive');
+    } catch {}
+    try {
+      const q = new URLSearchParams(location.search);
+      const qv = q.get('view');
+      if (qv === 'desktop' || qv === 'mobile') localStorage.setItem('all2k_view', qv);
+      const pref = qv || localStorage.getItem('all2k_view');
+      if (qv === 'desktop' || (pref === 'desktop' && sessionStorage.getItem('all2k_routed') !== 'd')) {
+        sessionStorage.setItem('all2k_routed', 'd');
+        const u = new URL('../', location.href);
+        u.search = location.search;
+        u.hash = location.hash;
+        location.replace(u.href);
+      }
+    } catch {}
+  })();</script>
+  <title>All2K — Mobile Download</title>
+  <meta name="description" content="Download All2K for Android. Your music, your street.">
+  <meta name="theme-color" content="#0a0a0a">
+  <meta property="og:title" content="All2K — Download">
+  <meta property="og:description" content="Download All2K for Android. Your music, your street.">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="../og-image.png">
+  <link rel="canonical" href="../">
+  <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+  <link rel="stylesheet" href="../assets/shared/tokens.css">
+  <link rel="stylesheet" href="../assets/mobile/mobile.css">
+  <script type="module" src="../assets/mobile/mobile.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+
+  <noscript>
+    <div class="m-noscript">
+      <span>All2K for Android · </span>
+      <a href="https://github.com/itsmectrl/All2K-new/releases/latest">Download latest APK</a>
+    </div>
+  </noscript>
+
+  <header class="m-bar">
+    <div class="m-wrap m-bar-inner">
+      <a class="m-logo" href="#top"><span aria-hidden="true">🛹</span><span class="chrome">ALL2K</span></a>
+      <div class="m-bar-actions">
+        <button type="button" class="m-icon-btn" data-theme-toggle aria-pressed="false" aria-label="Toggle negative color mode">◑</button>
+        <a class="m-icon-btn" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl aria-label="Download All2K">↓</a>
+      </div>
+    </div>
+  </header>
+
+  <main id="main">
+    <section id="top" class="m-wrap m-hero" aria-label="Hero">
+      <span class="m-tag"><i></i><span data-i18n="hero.tag">FREE FOR ANDROID</span></span>
+
+      <h1 class="m-h1">Your music.<br>Your <span class="m-hl">street.</span></h1>
+
+      <p class="m-lead" data-i18n="hero.lead">Grab All2K, plug in, and let the sidewalk soundtrack roll. One tap to download, under a minute to install.</p>
+
+      <div id="m-stage" class="m-stage">
+        <div class="m-board-zone">
+          <div id="m-deck" class="m-deck">
+            <svg id="m-deck-inner" class="m-deck-inner" viewBox="0 0 220 560" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <g fill="var(--ink)">
+                <rect x="14" y="120" width="26" height="46" rx="8"/>
+                <rect x="180" y="120" width="26" height="46" rx="8"/>
+                <rect x="14" y="394" width="26" height="46" rx="8"/>
+                <rect x="180" y="394" width="26" height="46" rx="8"/>
+              </g>
+              <rect x="36" y="8" width="148" height="544" rx="74" fill="var(--deck-fill)" stroke="var(--ink)" stroke-width="7"/>
+              <rect x="36" y="70" width="148" height="12" fill="var(--ink)"/>
+              <rect x="36" y="478" width="148" height="12" fill="var(--ink)"/>
+              <g stroke="var(--ink)" stroke-width="3">
+                <path d="M58 100h104M58 112h104M58 448h104M58 460h104"/>
+              </g>
+              <circle cx="110" cy="280" r="64" fill="var(--ink)"/>
+              <circle cx="110" cy="280" r="56" fill="none" stroke="var(--paper)" stroke-width="2" stroke-dasharray="3 5"/>
+              <circle cx="110" cy="280" r="22" fill="var(--paper)"/>
+              <g font-family="Archivo Black,Impact,sans-serif" text-anchor="middle" fill="var(--paper)" font-size="12">
+                <text x="110" y="240">MENU</text>
+                <text x="110" y="332">▶ ❙❙</text>
+              </g>
+              <text x="110" y="156" text-anchor="middle" font-family="Archivo Black,Impact,sans-serif" font-size="34" fill="var(--ink)">ALL2K</text>
+              <text x="110" y="420" text-anchor="middle" font-family="Space Mono,monospace" font-weight="700" font-size="11" fill="var(--ink)" letter-spacing="3">★ 2026 ★</text>
+            </svg>
+          </div>
+        </div>
+
+        <div class="m-stage-meta">
+          <div class="m-trick-readout">TRICKS <b id="m-tc">0</b></div>
+          <div id="m-combo" class="m-combo" aria-hidden="true">CLEAN</div>
+          <p class="m-stage-hint" data-i18n="hero.hintMobile">Swipe up to flip · sideways to spin</p>
+        </div>
+
+        <div class="m-trick-btns">
+          <button type="button" id="btn-flip" class="m-trick-btn">↑ Kickflip</button>
+          <button type="button" id="btn-spin" class="m-trick-btn">↔ Shove-it</button>
+        </div>
+        <div id="m-trick-status" class="sr-only" aria-live="polite"></div>
+      </div>
+
+      <div class="m-cta-block">
+        <a class="m-btn" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl>
+          <span data-i18n="hero.cta">Download APK</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+        <span class="m-meta" data-meta data-i18n="hero.meta">Android · Free download</span>
+        <p class="m-platform-note" data-platform-note hidden>All2K is for Android — tap Download for QR code &amp; link.</p>
+        <details class="verify-box" data-inline-verify hidden>
+          <summary><span data-i18n="dl.verify">Verify your download</span><span aria-hidden="true">+</span></summary>
+          <div class="verify-hash" data-inline-hash></div>
+          <button type="button" class="action-btn is-outline" data-inline-copy data-i18n="dl.copyHash">Copy SHA-256</button>
+        </details>
+      </div>
+    </section>
+
+    <div class="m-tapes" aria-hidden="true">
+      <div class="m-tape m-t1"><div class="m-marquee" data-anim-observe data-m="Free download ★ Android ★ Press play ★ Skate on ★ "></div></div>
+      <div class="m-tape m-t2"><div class="m-marquee" data-anim-observe data-m="All2K ★ Turn it up ★ No limits ★ Your street ★ "></div></div>
+    </div>
+
+    <section id="why" class="m-sec" aria-labelledby="m-why-h">
+      <div class="m-wrap">
+        <h2 id="m-why-h" class="m-h2" data-i18n="why.heading">Why <em>All2K?</em></h2>
+      </div>
+      <div id="why-carousel" class="m-carousel" role="region" aria-label="Highlights">
+        <article class="m-card">
+          <div class="m-card-num" aria-hidden="true">01</div>
+          <h3 data-i18n="why.c1.title">Feels different</h3>
+          <p data-i18n="why.c1.body">From the first second, listening feels less like using an app and more like a moment you want to stay in.</p>
+        </article>
+        <article class="m-card is-alt">
+          <div class="m-card-num" aria-hidden="true">02</div>
+          <h3 data-i18n="why.c2.title">Made with care</h3>
+          <p data-i18n="why.c2.body">Every detail is shaped so your music always takes center stage. No noise, just the good stuff.</p>
+        </article>
+        <article class="m-card">
+          <div class="m-card-num" aria-hidden="true">03</div>
+          <h3 data-i18n="why.c3.title">Keeps growing</h3>
+          <p data-i18n="why.c3.body">New versions land right inside the app. Install it once and it grows with you.</p>
+        </article>
+      </div>
+      <div class="m-dots" role="tablist" aria-label="Slide selector">
+        <button type="button" class="m-dot-btn" data-slide-dot="0" role="tab" aria-selected="true" aria-label="Slide 1"></button>
+        <button type="button" class="m-dot-btn" data-slide-dot="1" role="tab" aria-selected="false" aria-label="Slide 2"></button>
+        <button type="button" class="m-dot-btn" data-slide-dot="2" role="tab" aria-selected="false" aria-label="Slide 3"></button>
+      </div>
+    </section>
+
+    <section id="specs" class="m-sec is-dark" aria-labelledby="m-specs-h">
+      <div class="m-wrap">
+        <h2 id="m-specs-h" class="m-h2" data-i18n="specs.heading">The <em>specs</em></h2>
+        <div class="m-ticket">
+          <div class="m-ticket-row"><span data-i18n="specs.platform.k">Platform</span><b data-i18n="specs.platform.v">Android 7.0+</b></div>
+          <div class="m-ticket-row"><span data-i18n="specs.price.k">Price</span><b data-i18n="specs.price.v">Free</b></div>
+          <div class="m-ticket-row"><span data-i18n="specs.install.k">Install</span><b data-i18n="specs.install.v">Under a minute</b></div>
+          <div class="m-ticket-row"><span data-i18n="specs.updates.k">Updates</span><b data-i18n="specs.updates.v">Inside the app</b></div>
+          <div class="m-ticket-row"><span data-i18n="specs.releases.k">Releases</span><b data-i18n="specs.releases.v">Developer-signed</b></div>
+          <div class="m-ticket-row"><span data-i18n="specs.maker.k">Made by</span><b data-i18n="specs.maker.v">itsmectrl</b></div>
+        </div>
+      </div>
+    </section>
+
+    <section id="install" class="m-sec" aria-labelledby="m-install-h">
+      <div class="m-wrap">
+        <h2 id="m-install-h" class="m-h2" data-i18n="install.heading">Get it in <em>3 moves</em></h2>
+        <div class="m-timeline">
+          <article class="m-step">
+            <div class="m-step-num" aria-hidden="true">01</div>
+            <h3 data-i18n="install.s1.title">Download</h3>
+            <p data-i18n="install.s1.body">Hit the big button. You get an <code>.apk</code> file.</p>
+          </article>
+          <article class="m-step">
+            <div class="m-step-num" aria-hidden="true">02</div>
+            <h3 data-i18n="install.s2.title">Install</h3>
+            <p data-i18n="install.s2.body">Open the file. If Android asks, allow installs from your browser.</p>
+          </article>
+          <article class="m-step">
+            <div class="m-step-num" aria-hidden="true">03</div>
+            <h3 data-i18n="install.s3.title">Press play</h3>
+            <p data-i18n="install.s3.body">Launch All2K and go. That’s the whole trick.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="faq" class="m-sec" aria-labelledby="m-faq-h">
+      <div class="m-wrap">
+        <h2 id="m-faq-h" class="m-h2" data-i18n="faq.heading">Quick <em>answers</em></h2>
+        <div class="m-faq">
+          <details><summary data-i18n="faq.q1">Is it safe?</summary><p data-i18n="faq.a1">Every release is signed by the developer, and Android only accepts updates signed with the same key.</p></details>
+          <details><summary data-i18n="faq.q2">How do I update?</summary><p data-i18n="faq.a2">Open the app and check for updates. Done.</p></details>
+          <details><summary data-i18n="faq.q3">What is an APK?</summary><p data-i18n="faq.a3">A regular Android app file. Open it, tap install, and it works like any other app.</p></details>
+          <details><summary data-i18n="faq.q4">Which Android do I need?</summary><p data-i18n="faq.a4">Android 7.0 or newer.</p></details>
+        </div>
+      </div>
+    </section>
+
+    <section id="final" class="m-sec is-dark m-final" aria-labelledby="m-final-h">
+      <div class="m-wrap m-final-actions">
+        <h2 id="m-final-h" class="m-h2" data-i18n="final.heading">Ready to <em>roll?</em></h2>
+        <a class="m-btn is-inv" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl>
+          <span data-i18n="final.cta">Download All2K</span>
+          <span aria-hidden="true">↓</span>
+        </a>
+        <button type="button" id="m-share-btn" class="m-btn is-outline" data-i18n="dl.share">Share</button>
+        <span class="m-meta" data-meta data-i18n="hero.meta">Android · Free download</span>
+      </div>
+      <div class="m-big" aria-hidden="true">ALL2K</div>
+    </section>
+  </main>
+
+  <footer class="m-foot">
+    <div class="m-wrap m-foot-grid">
+      <p>Made by <b>itsmectrl</b> &nbsp;·&nbsp; © 2026 itsmectrl. All Rights Reserved.</p>
+      <div class="m-foot-actions">
+        <a class="m-foot-btn" href="../?view=desktop" data-switch-view="desktop" data-i18n="footer.mobileLink">Desktop site</a>
+        <div class="seg-group" role="group" aria-label="Language">
+          <button type="button" class="seg-btn" data-lang-btn="en" aria-pressed="true">EN</button>
+          <button type="button" class="seg-btn" data-lang-btn="fr" aria-pressed="false">FR</button>
+          <button type="button" class="seg-btn" data-lang-btn="ar" aria-pressed="false">AR</button>
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

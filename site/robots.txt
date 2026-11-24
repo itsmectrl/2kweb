@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://itsmectrl.github.io/All2K-new/sitemap.xml
