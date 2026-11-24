@@ -24,9 +24,9 @@ function serveStaticSite(): Plugin {
       server.middlewares.use((req, res, next) => {
         if (!req.url) return next();
         const urlPath = req.url.split('?')[0].split('#')[0];
-        const normalized = urlPath.startsWith('/All2K-new/')
-          ? urlPath.slice('/All2K-new'.length)
-          : urlPath === '/All2K-new'
+        const normalized = urlPath.startsWith('/2kweb/')
+          ? urlPath.slice('/2kweb'.length)
+          : urlPath === '/2kweb'
             ? '/'
             : urlPath;
 

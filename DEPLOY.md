@@ -1,50 +1,46 @@
 # Deploying All2K to GitHub Pages
 
-This guide explains how to deploy the contents of `site/` to the `itsmectrl/All2K-new` repository on GitHub Pages.
+This guide explains how to host the static website inside `site/` from the `itsmectrl/2kweb` repository on GitHub Pages (`https://itsmectrl.github.io/2kweb/`). APK downloads and release metadata continue to point to `itsmectrl/All2K-new/releases/latest`.
 
-## 1. Files to Copy
+## 1. Static Output Folder (`site/`)
 
-Copy everything **inside** `site/` into the root of your `itsmectrl/All2K-new` repository on the `main` branch:
+The website is self-contained inside `site/` and has zero runtime dependencies on anything in the repository root:
 
-- `index.html`
-- `m/index.html`
-- `assets/shared/` (`tokens.css`, `release.js`, `platform.js`, `qr.js`, `wheel.js`, `sound.js`, `i18n.js`, `fonts/`, `icons/`, `locales/`)
-- `assets/desktop/` (`desktop.css`, `desktop.js`)
-- `assets/mobile/` (`mobile.css`, `mobile.js`)
-- `404.html`
-- `robots.txt`
-- `sitemap.xml`
-- `favicon.svg`
-- `og-image.png`
+- `site/index.html`
+- `site/m/index.html`
+- `site/assets/shared/` (`tokens.css`, `release.js`, `platform.js`, `qr.js`, `wheel.js`, `sound.js`, `i18n.js`, `fonts/`, `icons/`, `locales/`)
+- `site/assets/desktop/` (`desktop.css`, `desktop.js`)
+- `site/assets/mobile/` (`mobile.css`, `mobile.js`)
+- `site/404.html`
+- `site/robots.txt`
+- `site/sitemap.xml`
+- `site/favicon.svg`
+- `site/og-image.png`
 
-## 2. Files NOT to Overwrite
+## 2. Publish `site/` on GitHub Pages
 
-Do **not** overwrite or delete existing repository files generated outside the website:
+### Option A: GitHub Actions (Recommended when serving from `site/`)
+1. Open `itsmectrl/2kweb` on GitHub and go to **Settings → Pages**.
+2. Under **Build and deployment → Source**, choose **GitHub Actions**.
+3. Deploy the `site/` directory directly (for example via `actions/upload-pages-artifact` with `path: site`).
 
-- `README.md`
-- `version.json` (written by your release pipeline)
-- Any release assets or `.apk` artifacts
+### Option B: Branch Root (`gh-pages` or `main`)
+1. Copy the contents **inside** `site/` into the root of your Pages branch.
+2. In **Settings → Pages**, select **Deploy from a branch** and choose `/ (root)`.
+3. Do not overwrite any existing non-site files such as `README.md`, `version.json`, or release artifacts if publishing to a shared branch.
 
-## 3. Enable GitHub Pages
-
-1. Push your changes to the `main` branch of `itsmectrl/All2K-new`.
-2. Open the repository on GitHub and go to **Settings → Pages**.
-3. Under **Build and deployment → Source**, choose **Deploy from a branch**.
-4. Select branch **`main`** and folder **`/ (root)`**, then click **Save**.
-5. Wait for the `pages build and deployment` workflow to finish.
-
-## 4. URLs to Check After Deployment
+## 3. URLs to Check After Deployment
 
 Verify all of the following URLs after deployment:
 
-- Desktop experience: `https://itsmectrl.github.io/All2K-new/`
-- Mobile experience: `https://itsmectrl.github.io/All2K-new/m/`
-- Forced desktop view on a phone: `https://itsmectrl.github.io/All2K-new/?view=desktop`
-- Forced mobile view on a desktop browser: `https://itsmectrl.github.io/All2K-new/?view=mobile`
-- 404 fallback page: `https://itsmectrl.github.io/All2K-new/does-not-exist`
-- OpenGraph image: `https://itsmectrl.github.io/All2K-new/og-image.png`
-- Sitemap & robots: `https://itsmectrl.github.io/All2K-new/sitemap.xml` and `https://itsmectrl.github.io/All2K-new/robots.txt`
+- Desktop experience: `https://itsmectrl.github.io/2kweb/`
+- Mobile experience: `https://itsmectrl.github.io/2kweb/m/`
+- Forced desktop view on a phone: `https://itsmectrl.github.io/2kweb/?view=desktop`
+- Forced mobile view on a desktop browser: `https://itsmectrl.github.io/2kweb/?view=mobile`
+- 404 fallback page: `https://itsmectrl.github.io/2kweb/does-not-exist`
+- OpenGraph image: `https://itsmectrl.github.io/2kweb/og-image.png`
+- Sitemap & robots: `https://itsmectrl.github.io/2kweb/sitemap.xml` and `https://itsmectrl.github.io/2kweb/robots.txt`
 
 ### Custom Domain Note
 
-All internal asset paths and page switches are relative (`assets/...`, `m/`, `../`). If you attach a custom domain later in **Settings → Pages**, the site works without modifying any HTML, CSS, or JavaScript files (you only need to update the `<loc>` URLs in `sitemap.xml` if you want canonical sitemap entries on the new domain).
+All internal asset paths, page switches, and the share/QR URL generator are relative or derived from `location.href`. If you attach a custom domain later in **Settings → Pages**, the site functions unchanged; only update the explicit canonical, `og:url`, `og:image`, `twitter:image`, `sitemap.xml`, and `robots.txt` URLs if you want search/social metadata to use the custom domain.

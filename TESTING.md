@@ -6,15 +6,18 @@
 - **QR Code Encoder (`site/assets/shared/qr.js`)**: Verified with the independent `jsqr` decoder across Versions 1, 2, 3, 4, 6, 7, and 10 (short, medium, subpath, and long query-string URLs). Every generated QR matrix decoded back to the exact input URL.
 - **Mobile Payload Size**: Measured raw and gzipped sizes of `site/m/index.html`, `tokens.css`, `mobile.css`, `mobile.js`, and all shared JS modules (excluding self-hosted `.woff2` fonts): **96,863 bytes raw / 26.35 KB gzipped** (under the 80 KB budget).
 - **Content Security Policy (CSP)**: Verified SHA-256 hashes of the inline `<head>` router scripts in both `site/index.html` and `site/m/index.html` match their `<meta http-equiv="Content-Security-Policy">` directives with zero console or CSP errors.
-- **Path & Copy Audit**: Verified zero forbidden strings (`originostudio`, `All2K-1`) and zero root-absolute asset URLs (`/assets/...`) across `site/`.
-- **OpenGraph Image (`site/og-image.png`)**: Verified PNG signature and exact `1200 × 630` pixel dimensions in strict black and white.
+- **Path, URL & Copy Audit**: Verified zero forbidden strings (`originostudio`, `All2K-1`), zero old `All2K-new` GitHub Pages site URLs, zero root-relative asset URLs inside `site/`, and confirmed all APK/API release links remain on `itsmectrl/All2K-new`.
+- **OpenGraph Image (`site/og-image.png`)**: Verified PNG signature, `IHDR`/`IDAT`/`IEND` chunks only, and exact `1200 × 630` pixel dimensions in strict black and white.
 
 ### Automated Headless Chromium (Playwright) Checks
-Served `site/` locally under the GitHub Pages subpath `/All2K-new/` and ran automated checks:
-- **Routing & Overrides**:
-  - Desktop (`1440×900`) and tablet landscape (`1024×768`, touch enabled) stayed on `/All2K-new/`.
-  - Phone viewports automatically redirected before first paint to `/All2K-new/m/`.
-  - `?view=desktop` from `/m/` redirected to `/All2K-new/?view=desktop` without looping.
+Served `site/` standalone (with zero access to repo root files) under both the GitHub Pages subpath `/2kweb/` and a root custom domain `/`:
+- **Routing, 404 & Overrides**:
+  - Desktop (`1440×900`) and tablet landscape (`1024×768`, touch enabled) stayed on `/2kweb/`.
+  - Phone viewports automatically redirected before first paint to `/2kweb/m/` (and `/m/` under root custom domain).
+  - `?view=desktop` from `/m/` redirected to `/2kweb/?view=desktop` without looping.
+  - Missing paths under `/2kweb/` served `site/404.html` with `#home-link` pointing back to `/2kweb/`.
+- **SEO & Social Metadata**:
+  - Verified `<link rel="canonical">`, `<link rel="alternate">`, `og:url`, `og:image`, and `twitter:*` tags point to `https://itsmectrl.github.io/2kweb/`.
 - **Zero Overflow, Zero Overlapping Interactive Elements, & Tap Targets (`>= 47–48px`)**:
   - Desktop `1440×900`: PASS (`0` overflows, `0` overlaps).
   - Foldable `280×653`: PASS.
@@ -26,11 +29,11 @@ Served `site/` locally under the GitHub Pages subpath `/All2K-new/` and ran auto
   - Mobile skateboard Kickflip & Shove-it triggers incremented trick counter and displayed `COMBO x2`.
   - i18n switched cleanly to Arabic (`dir="rtl"`) and French.
   - Smart Download sheet:
-    - Desktop / non-Android showed `"All2K is for Android"`, rendered the SVG QR code, and provided Copy link.
+    - Desktop / non-Android showed `"All2K is for Android"`, rendered the SVG QR code encoding the URL computed from `location.href` (verified for both `/2kweb/` and root `/`), and provided Copy link.
     - Android User-Agent showed `"APK download started"` with the 3-step install guide.
-    - Mocked GitHub API response with `digest` revealed the collapsible `"Verify your download"` SHA-256 box; response without `digest` kept it hidden.
+    - Mocked GitHub API response (`itsmectrl/All2K-new/releases/latest`) with `digest` revealed the collapsible `"Verify your download"` SHA-256 box; response without `digest` kept it hidden.
 - **Progressive Enhancement (JavaScript Disabled)**:
-  - Verified `/All2K-new/m/` with JS disabled displays the `<noscript>` download link and keeps all sections (including FAQ) visible and accessible.
+  - Verified `/2kweb/m/` with JS disabled displays the `<noscript>` download link and keeps all sections (including FAQ) visible and accessible.
 - **Release Fallback (`site/assets/shared/release.js`)**:
   - Verified in Node that aborted/failed fetches cleanly fall back to `https://github.com/itsmectrl/All2K-new/releases/latest`.
 
