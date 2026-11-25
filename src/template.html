@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2026 itsmectrl. All Rights Reserved. -->
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="itsmectrl">
+<meta name="description" content="{{metaDescription}}">
+<meta name="theme-color" content="#0b0b0b">
+<title>{{metaTitle}}</title>
+<link rel="icon" type="image/svg+xml" href="{{assetPrefix}}assets/img/favicon.svg">
+<link rel="canonical" href="{{canonicalUrl}}">
+{{hreflangLinks}}
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="All2K">
+<meta property="og:title" content="{{metaTitle}}">
+<meta property="og:description" content="{{metaDescription}}">
+<meta property="og:url" content="{{canonicalUrl}}">
+<meta property="og:image" content="{{ogImageUrl}}">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="{{ogAlt}}">
+<meta property="og:locale" content="{{ogLocale}}">
+{{ogLocaleAlternates}}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{metaTitle}}">
+<meta name="twitter:description" content="{{metaDescription}}">
+<meta name="twitter:image" content="{{ogImageUrl}}">
+{{fontLinks}}
+<link rel="stylesheet" href="{{assetPrefix}}assets/css/style.css">
+<script type="application/ld+json">{{jsonLd}}</script>
+<script>document.documentElement.classList.add('js')</script>
+</head>
+<body>
+<a class="skip" href="#main-content">{{skipLabel}}</a>
+
+<header>
+  <div class="wrap">
+    <a class="logo" href="#top"><bdi dir="ltr">{{brand}}</bdi></a>
+    <div class="h-actions">
+      {{headerLangSwitcher}}
+      <a class="pill" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl>{{navDownload}}</a>
+    </div>
+  </div>
+</header>
+
+<aside id="lang-banner" class="lang-banner" aria-label="{{langNavLabel}}" hidden>
+  <div class="wrap">
+    <span id="lang-banner-text"></span>
+    <div class="lang-banner-actions">
+      <a id="lang-banner-cta" class="lang-banner-link" href="{{homeHref}}"></a>
+      <button id="lang-banner-close" class="lang-banner-close" type="button">{{bannerDismiss}}</button>
+    </div>
+  </div>
+</aside>
+
+<main id="main-content">
+  <div id="top" class="hero">
+    <div class="wrap">
+      <div>
+        <span class="tag">{{heroTag}}</span>
+        <h1>{{heroTitleBefore}}<em>{{heroTitleAccent}}</em>{{heroTitleAfter}}</h1>
+        <p class="lead rv">{{heroLead}}</p>
+        <div class="rv">
+          <a class="btn" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl>{{heroCta}} <i aria-hidden="true">↓</i></a>
+          <span class="meta" data-meta>{{heroMetaIdle}}</span>
+        </div>
+        <div id="note" hidden>{{heroNotAndroid}}<br><button class="btn ghost" id="cl" type="button">{{heroCopyLink}}</button></div>
+      </div>
+
+      <div class="art">
+        <svg class="spk" style="top:4%;right:2%" width="40" height="40" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="#f4f4f2"/></svg>
+        <svg class="spk" style="bottom:6%;right:8%;animation-delay:-1.2s" width="26" height="26" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="#f4f4f2"/></svg>
+        <div class="pod">
+          <svg class="pend" width="30" height="30" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z" fill="#f4f4f2" stroke="#0b0b0b"/></svg>
+          <div class="lcd" id="lcd" aria-live="polite">
+            <div class="lh"><span>{{podHeaderRoot}}</span><span aria-hidden="true">▮▮▮</span></div>
+            {{lcdInitialRows}}
+            <div class="lf"><bdi dir="auto">{{podFooterIdle}}</bdi></div>
+          </div>
+          <div class="wheel" id="wheel" role="group" aria-label="{{podWheelLabel}}" tabindex="0">
+            <div class="grip" id="grip"></div>
+            <button class="wm" id="bm" type="button">{{podMenuBtn}}</button>
+            <button class="wp" id="bp" type="button" aria-label="{{podPrevLabel}}"><svg width="26" height="20" viewBox="0 0 26 20" fill="currentColor" aria-hidden="true"><path d="M12 2v16L2 10zM24 2v16L14 10z"/></svg></button>
+            <button class="wn" id="bn" type="button" aria-label="{{podNextLabel}}"><svg width="26" height="20" viewBox="0 0 26 20" fill="currentColor" aria-hidden="true"><path d="M2 2v16l10-8zM14 2v16l10-8z"/></svg></button>
+            <button class="wl" id="bl" type="button" aria-label="{{podPlayLabel}}"><svg width="30" height="20" viewBox="0 0 30 20" fill="currentColor" aria-hidden="true"><path d="M2 2v16l11-8zM18 2h4v16h-4zM25 2h4v16h-4z"/></svg></button>
+            <button class="wc" id="bc" type="button" aria-label="{{podSelectLabel}}"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C13 7 17 11 24 12 17 13 13 17 12 24 11 17 7 13 0 12 7 11 11 7 12 0Z"/></svg></button>
+          </div>
+        </div>
+        <div class="stk" aria-hidden="true"><b>ADVISORY</b><span>EXPLICIT FEELINGS</span></div>
+        <div class="pod-controls">
+          <button id="sound-toggle" class="sound-btn" type="button" aria-pressed="false">{{podSoundOff}}</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="st" aria-hidden="true"></div>
+
+  <section id="why">
+    <div class="wrap">
+      <h2 class="rv">{{whyTitleBefore}}<em>{{whyTitleAccent}}</em></h2>
+      <div class="cards">
+        {{whyCards}}
+      </div>
+    </div>
+  </section>
+
+  <div class="lace" aria-hidden="true"></div>
+
+  <section id="install">
+    <div class="wrap">
+      <h2 class="rv">{{installTitleBefore}}<em>{{installTitleAccent}}</em></h2>
+      <div class="steps">
+        {{installSteps}}
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="wrap">
+      <h2 class="rv">{{faqTitleBefore}}<em>{{faqTitleAccent}}</em></h2>
+      <div class="rv">
+        {{faqItems}}
+        <details id="vf" hidden>
+          <summary>{{verifySummary}}</summary>
+          <p><bdi dir="ltr">{{verifyLabel}}</bdi><br><code id="hash" dir="ltr"></code><br><button class="btn ghost" id="ch" type="button">{{verifyCopyHash}}</button></p>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <section class="end">
+    <div class="wrap">
+      <h2 class="rv">{{endTitleBefore}}<em>{{endTitleAccent}}</em></h2>
+      <a class="btn" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl>{{endCta}} <i aria-hidden="true">↓</i></a>
+      <span class="meta" data-meta>{{heroMetaIdle}}</span>
+    </div>
+  </section>
+
+  <div class="st" aria-hidden="true"></div>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-lang">{{footerLangSwitcher}}</div>
+    <p>{{footerPrefix}}<b><bdi dir="ltr">itsmectrl</bdi></b>{{footerSuffix}}</p>
+  </div>
+</footer>
+
+<div class="dock" id="dock"><a class="btn" href="https://github.com/itsmectrl/All2K-new/releases/latest" data-dl>{{dockCta}} <i aria-hidden="true">↓</i></a></div>
+
+<script id="i18n-data" type="application/json">{{clientStringsJson}}</script>
+<script type="module" src="{{assetPrefix}}assets/js/main.js"></script>
+</body>
+</html>

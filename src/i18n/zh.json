@@ -1,0 +1,169 @@
+{
+  "lang": "zh-Hans",
+  "dir": "ltr",
+  "localeCode": "zh-Hans-CN",
+  "ogLocale": "zh_CN",
+  "meta": {
+    "title": "All2K — 下载",
+    "description": "下载 Android 版 All2K。一款免费音乐播放器，带你找回老式 iPod 转盘的经典手感。",
+    "ogAlt": "All2K 黑白复古转盘音乐播放器 Android 下载海报"
+  },
+  "nav": {
+    "skip": "跳至正文内容",
+    "brand": "All2K",
+    "langLabel": "选择语言",
+    "download": "下载"
+  },
+  "banner": {
+    "prompt": "本页面也提供{language}版本。",
+    "cta": "切换到{language}",
+    "dismiss": "关闭"
+  },
+  "hero": {
+    "tag": "Android 免费版",
+    "titleBefore": "按下播放，回到 ",
+    "titleAccent": "2006。",
+    "titleAfter": "",
+    "lead": "All2K 是一款免费的 Android 音乐播放器，带你重温老式 iPod 的操控手感。轻点一次即可下载，不到一分钟完成安装。",
+    "cta": "下载 APK",
+    "metaIdle": "Android 7.0+ · 免费下载",
+    "metaTagOnly": "最新版本 {tag} · Android 7.0+ · 免费",
+    "metaLoaded": "最新版本 {tag} · {date} · {size} · Android 7.0+ · 免费",
+    "notAndroid": "All2K 适用于 Android 设备。请在手机上打开本页面，或把链接发给自己。",
+    "copyLink": "复制链接",
+    "copied": "已复制"
+  },
+  "pod": {
+    "wheelLabel": "点按式转盘",
+    "menuBtn": "MENU",
+    "prevLabel": "上一项",
+    "nextLabel": "下一项",
+    "playLabel": "下载",
+    "selectLabel": "确认",
+    "soundOff": "转盘音效：关",
+    "soundOn": "转盘音效：开",
+    "hint": "转动转盘或按方向键浏览",
+    "short": {
+      "headerRoot": "ALL2K",
+      "footerIdle": "Android · 免费",
+      "footerTag": "{tag} · 免费",
+      "menu": [
+        "下载 APK",
+        "安装步骤",
+        "规格说明",
+        "常见问题"
+      ],
+      "paneTitles": [
+        "ALL2K",
+        "安装步骤",
+        "规格说明",
+        "常见问题"
+      ],
+      "panes": [
+        [],
+        [
+          "1 下载 APK",
+          "2 打开安装包",
+          "3 允许安装",
+          "4 开始播放"
+        ],
+        [
+          "Android 7.0+",
+          "免费使用",
+          "开发者签名",
+          "应用内更新"
+        ],
+        [
+          "安全吗？",
+          "开发者签名。",
+          "如何更新？",
+          "应用内检查更新。"
+        ]
+      ]
+    }
+  },
+  "why": {
+    "titleBefore": "为什么选 ",
+    "titleAccent": "All2K？",
+    "cards": [
+      {
+        "num": "01",
+        "title": "经典手感回归",
+        "body": "在随身携带的 Android 手机上，找回当年老式转盘播放器的触控节奏。"
+      },
+      {
+        "num": "02",
+        "title": "纯黑白，零干扰",
+        "body": "克制的视觉只为把舞台留给音乐本身，去掉花哨，只留纯粹。"
+      },
+      {
+        "num": "03",
+        "title": "应用内直接更新",
+        "body": "新版本直接推送至应用内部，一次安装就能持续升级。"
+      }
+    ]
+  },
+  "install": {
+    "titleBefore": "三步上手 ",
+    "titleAccent": "即刻开听",
+    "steps": [
+      {
+        "title": "下载",
+        "body": "点击上方按钮获取经过开发者签名的 {apk} 安装包。"
+      },
+      {
+        "title": "安装",
+        "body": "打开安装包。如果系统提示，允许通过浏览器安装应用即可。"
+      },
+      {
+        "title": "播放",
+        "body": "启动 All2K，直接开始听歌，就这么简单。"
+      }
+    ]
+  },
+  "faq": {
+    "titleBefore": "常见 ",
+    "titleAccent": "问题",
+    "items": [
+      {
+        "q": "安装包安全吗？",
+        "a": "每个发布版本均由开发者签名，Android 系统也只会接受使用同一密钥签名的更新。"
+      },
+      {
+        "q": "后续怎么更新？",
+        "a": "打开 All2K，直接在应用内检查更新即可，无需折腾。"
+      },
+      {
+        "q": "需要什么版本的 Android？",
+        "a": "支持 Android 7.0 及以上系统。"
+      },
+      {
+        "q": "什么是 APK 文件？",
+        "a": "APK 是标准的 Android 应用安装包。打开并点击安装后，就和普通应用完全一样。"
+      }
+    ],
+    "verify": {
+      "summary": "校验文件哈希",
+      "label": "SHA-256：",
+      "copyHash": "复制哈希值"
+    }
+  },
+  "end": {
+    "titleBefore": "准备好 ",
+    "titleAccent": "开听了吗？",
+    "cta": "下载 All2K"
+  },
+  "dock": {
+    "cta": "下载"
+  },
+  "footer": {
+    "prefix": "开发者：",
+    "suffix": " · © 2026 itsmectrl. 保留所有权利。"
+  },
+  "notFound": {
+    "title": "All2K — 页面未找到",
+    "heading": "未找到该页面。",
+    "body": "你访问的地址不存在，请返回 All2K 下载主页。",
+    "cta": "返回 All2K"
+  }
+}

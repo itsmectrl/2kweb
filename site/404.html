@@ -1,78 +1,43 @@
 <!DOCTYPE html>
 <!-- Copyright (c) 2026 itsmectrl. All Rights Reserved. -->
-<html lang="en">
+<html lang="en" dir="ltr">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>404 — All2K</title>
-  <meta name="author" content="itsmectrl">
-  <meta name="theme-color" content="#0a0a0a">
-  <style>
-    :root { --ink: #0a0a0a; --paper: #f3f3f0; --m: #5c5c58; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-      min-height: 100svh;
-      display: grid;
-      place-items: center;
-      padding: 24px;
-      background: var(--paper) radial-gradient(rgba(10,10,10,0.14) 1.1px, transparent 1.3px) 0 0 / 14px 14px;
-      color: var(--ink);
-      font-family: ui-monospace, Menlo, Consolas, monospace;
-    }
-    .card {
-      max-width: 520px;
-      width: 100%;
-      border: 2px solid var(--ink);
-      background: var(--paper);
-      box-shadow: 8px 8px 0 var(--ink);
-      padding: 28px 24px;
-      display: grid;
-      gap: 16px;
-    }
-    h1 {
-      font-family: Impact, "Arial Black", sans-serif;
-      font-size: clamp(56px, 16vw, 112px);
-      line-height: 0.9;
-      letter-spacing: -0.04em;
-    }
-    p { font-size: 16px; line-height: 1.5; }
-    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 6px; }
-    a {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      min-height: 48px;
-      padding: 10px 18px;
-      border: 2px solid var(--ink);
-      background: var(--ink);
-      color: var(--paper);
-      text-decoration: none;
-      font-weight: 700;
-      text-transform: uppercase;
-      box-shadow: 4px 4px 0 var(--m);
-    }
-    a.alt {
-      background: var(--paper);
-      color: var(--ink);
-    }
-  </style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="itsmectrl">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0b0b">
+<title>All2K — Page not found</title>
+<link rel="icon" type="image/svg+xml" href="assets/img/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturCook:wght@700&amp;family=VT323&amp;family=Space+Mono:wght@400;700&amp;display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
-  <main class="card">
-    <h1>404</h1>
-    <p>That street corner doesn’t exist. Head back to All2K or grab the latest Android release directly.</p>
-    <div class="actions">
-      <a id="home-link" href="./">Back to All2K</a>
-      <a class="alt" href="https://github.com/itsmectrl/All2K-new/releases/latest">Download APK</a>
+<header>
+  <div class="wrap">
+    <a class="logo" href="./"><bdi dir="ltr">All2K</bdi></a>
+    <div class="h-actions">
+      <nav class="lang-nav" aria-label="Choose language"><a href="./" hreflang="en" lang="en" data-lang-switch="en" aria-current="page">EN</a><a href="fr/" hreflang="fr" lang="fr" data-lang-switch="fr">FR</a><a href="ar/" hreflang="ar" lang="ar" data-lang-switch="ar">عربي</a><a href="zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang-switch="zh-Hans">中文</a></nav>
+      <a class="pill" href="https://github.com/itsmectrl/All2K-new/releases/latest">Download</a>
     </div>
-  </main>
-  <script>
-    (() => {
-      const a = document.getElementById('home-link');
-      if (!a) return;
-      const p = location.pathname;
-      a.href = p.startsWith('/2kweb/') || p === '/2kweb' ? '/2kweb/' : './';
-    })();
-  </script>
+  </div>
+</header>
+<main class="notfound">
+  <div class="wrap">
+    <span class="tag">404</span>
+    <h1>Track not found.</h1>
+    <p class="lead">That link missed the beat. Head back to the All2K download page.</p>
+    <a class="btn" href="./">Back to All2K</a>
+  </div>
+</main>
+<div class="st" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div class="footer-lang"><nav class="lang-nav" aria-label="Choose language"><a href="./" hreflang="en" lang="en" data-lang-switch="en" aria-current="page">English</a><a href="fr/" hreflang="fr" lang="fr" data-lang-switch="fr">Français</a><a href="ar/" hreflang="ar" lang="ar" data-lang-switch="ar">العربية</a><a href="zh/" hreflang="zh-Hans" lang="zh-Hans" data-lang-switch="zh-Hans">简体中文</a></nav></div>
+    <p>Made by <b><bdi dir="ltr">itsmectrl</bdi></b> · © 2026 itsmectrl. All Rights Reserved.</p>
+  </div>
+</footer>
 </body>
 </html>

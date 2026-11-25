@@ -1,13 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+<!-- Copyright (c) 2026 itsmectrl. All Rights Reserved. -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://itsmectrl.github.io/2kweb/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://itsmectrl.github.io/2kweb/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://itsmectrl.github.io/2kweb/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://itsmectrl.github.io/2kweb/ar/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://itsmectrl.github.io/2kweb/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://itsmectrl.github.io/2kweb/"/>
   </url>
   <url>
-    <loc>https://itsmectrl.github.io/2kweb/m/</loc>
-    <changefreq>weekly</changefreq>
-    <priority>0.8</priority>
+    <loc>https://itsmectrl.github.io/2kweb/fr/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://itsmectrl.github.io/2kweb/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://itsmectrl.github.io/2kweb/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://itsmectrl.github.io/2kweb/ar/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://itsmectrl.github.io/2kweb/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://itsmectrl.github.io/2kweb/"/>
+  </url>
+  <url>
+    <loc>https://itsmectrl.github.io/2kweb/ar/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://itsmectrl.github.io/2kweb/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://itsmectrl.github.io/2kweb/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://itsmectrl.github.io/2kweb/ar/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://itsmectrl.github.io/2kweb/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://itsmectrl.github.io/2kweb/"/>
+  </url>
+  <url>
+    <loc>https://itsmectrl.github.io/2kweb/zh/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://itsmectrl.github.io/2kweb/"/>
+    <xhtml:link rel="alternate" hreflang="fr" href="https://itsmectrl.github.io/2kweb/fr/"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://itsmectrl.github.io/2kweb/ar/"/>
+    <xhtml:link rel="alternate" hreflang="zh-Hans" href="https://itsmectrl.github.io/2kweb/zh/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://itsmectrl.github.io/2kweb/"/>
   </url>
 </urlset>

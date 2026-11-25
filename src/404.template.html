@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<!-- Copyright (c) 2026 itsmectrl. All Rights Reserved. -->
+<html lang="{{lang}}" dir="{{dir}}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="author" content="itsmectrl">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#0b0b0b">
+<title>{{notFoundTitle}}</title>
+<link rel="icon" type="image/svg+xml" href="{{assetPrefix}}assets/img/favicon.svg">
+{{fontLinks}}
+<link rel="stylesheet" href="{{assetPrefix}}assets/css/style.css">
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="logo" href="{{homeHref}}"><bdi dir="ltr">All2K</bdi></a>
+    <div class="h-actions">
+      {{headerLangSwitcher}}
+      <a class="pill" href="https://github.com/itsmectrl/All2K-new/releases/latest">{{navDownload}}</a>
+    </div>
+  </div>
+</header>
+<main class="notfound">
+  <div class="wrap">
+    <span class="tag">404</span>
+    <h1>{{notFoundHeading}}</h1>
+    <p class="lead">{{notFoundBody}}</p>
+    <a class="btn" href="{{homeHref}}">{{notFoundCta}}</a>
+  </div>
+</main>
+<div class="st" aria-hidden="true"></div>
+<footer>
+  <div class="wrap">
+    <div class="footer-lang">{{footerLangSwitcher}}</div>
+    <p>{{footerPrefix}}<b><bdi dir="ltr">itsmectrl</bdi></b>{{footerSuffix}}</p>
+  </div>
+</footer>
+</body>
+</html>

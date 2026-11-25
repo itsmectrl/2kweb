@@ -1,0 +1,169 @@
+{
+  "lang": "fr",
+  "dir": "ltr",
+  "localeCode": "fr-FR",
+  "ogLocale": "fr_FR",
+  "meta": {
+    "title": "All2K — Télécharger",
+    "description": "Télécharge All2K pour Android. Le lecteur audio gratuit qui retrouve les sensations de ton vieil iPod.",
+    "ogAlt": "Visuel noir et blanc All2K du lecteur à molette classique pour Android"
+  },
+  "nav": {
+    "skip": "Aller au contenu principal",
+    "brand": "All2K",
+    "langLabel": "Choisir la langue",
+    "download": "Télécharger"
+  },
+  "banner": {
+    "prompt": "Cette page existe aussi en {language}.",
+    "cta": "Passer en {language}",
+    "dismiss": "Fermer"
+  },
+  "hero": {
+    "tag": "GRATUIT SUR ANDROID",
+    "titleBefore": "Appuie sur lecture comme en ",
+    "titleAccent": "2006.",
+    "titleAfter": "",
+    "lead": "All2K est le lecteur audio Android gratuit qui retrouve les sensations de ton vieil iPod. Un geste pour le télécharger, moins d’une minute pour l’installer.",
+    "cta": "Télécharger l’APK",
+    "metaIdle": "Android 7.0+ · Téléchargement gratuit",
+    "metaTagOnly": "Version {tag} · Android 7.0+ · Gratuit",
+    "metaLoaded": "Version {tag} · {date} · {size} · Android 7.0+ · Gratuit",
+    "notAndroid": "All2K est prévu pour Android. Ouvre cette page sur ton téléphone, ou envoie-toi le lien.",
+    "copyLink": "Copier le lien",
+    "copied": "Copié"
+  },
+  "pod": {
+    "wheelLabel": "Molette cliquable",
+    "menuBtn": "MENU",
+    "prevLabel": "Précédent",
+    "nextLabel": "Suivant",
+    "playLabel": "Télécharger",
+    "selectLabel": "Valider",
+    "soundOff": "Clic molette : Désactivé",
+    "soundOn": "Clic molette : Activé",
+    "hint": "Navigue avec la molette ou les flèches",
+    "short": {
+      "headerRoot": "ALL2K",
+      "footerIdle": "Android · Gratuit",
+      "footerTag": "{tag} · Gratuit",
+      "menu": [
+        "Télécharger APK",
+        "Installation",
+        "Infos",
+        "FAQ"
+      ],
+      "paneTitles": [
+        "ALL2K",
+        "INSTALLATION",
+        "INFOS",
+        "FAQ"
+      ],
+      "panes": [
+        [],
+        [
+          "1 PRENDS L’APK",
+          "2 OUVRE LE FICHIER",
+          "3 AUTORISE",
+          "4 APPUIE LECTURE"
+        ],
+        [
+          "ANDROID 7.0+",
+          "GRATUIT",
+          "SIGNÉ PAR LE DEV",
+          "MÀJ DANS L’APPLI"
+        ],
+        [
+          "SÛR ?",
+          "APK SIGNÉ.",
+          "MISES À JOUR ?",
+          "DANS L’APPLI."
+        ]
+      ]
+    }
+  },
+  "why": {
+    "titleBefore": "Pourquoi ",
+    "titleAccent": "All2K ?",
+    "cards": [
+      {
+        "num": "01",
+        "title": "Le son d’époque",
+        "body": "Les sensations d’un lecteur à molette classique, sur le téléphone Android que tu as déjà en poche."
+      },
+      {
+        "num": "02",
+        "title": "Noir, blanc, net",
+        "body": "Tout s’efface pour laisser toute la place à ta musique. Rien de superflu."
+      },
+      {
+        "num": "03",
+        "title": "Mises à jour intégrées",
+        "body": "Les nouvelles versions arrivent directement dans l’application. Installe-la une fois, c’est réglé."
+      }
+    ]
+  },
+  "install": {
+    "titleBefore": "Prêt en ",
+    "titleAccent": "3 étapes",
+    "steps": [
+      {
+        "title": "Télécharge",
+        "body": "Appuie sur le bouton ci-dessus pour récupérer le fichier {apk} signé."
+      },
+      {
+        "title": "Installe",
+        "body": "Ouvre le fichier. Si Android le demande, autorise ton navigateur à installer des applis."
+      },
+      {
+        "title": "Écoute",
+        "body": "Lance All2K et profite. Il n’y a rien d’autre à configurer."
+      }
+    ]
+  },
+  "faq": {
+    "titleBefore": "Questions ",
+    "titleAccent": "courantes",
+    "items": [
+      {
+        "q": "Est-ce fiable ?",
+        "a": "Chaque version est signée par le développeur, et Android n’accepte que les mises à jour signées avec la même clé."
+      },
+      {
+        "q": "Comment mettre à jour ?",
+        "a": "Ouvre All2K et vérifie les mises à jour directement dans l’application. C’est tout."
+      },
+      {
+        "q": "Quelle version d’Android faut-il ?",
+        "a": "Android 7.0 ou plus récent."
+      },
+      {
+        "q": "C’est quoi un fichier APK ?",
+        "a": "Le format standard des applications Android. Ouvre-le, appuie sur installer, et l’app fonctionne normalement."
+      }
+    ],
+    "verify": {
+      "summary": "Vérifier le téléchargement",
+      "label": "SHA-256 :",
+      "copyHash": "Copier l’empreinte"
+    }
+  },
+  "end": {
+    "titleBefore": "On lance le ",
+    "titleAccent": "son ?",
+    "cta": "Télécharger All2K"
+  },
+  "dock": {
+    "cta": "Télécharger"
+  },
+  "footer": {
+    "prefix": "Créé par ",
+    "suffix": " · © 2026 itsmectrl. Tous droits réservés."
+  },
+  "notFound": {
+    "title": "All2K — Page introuvable",
+    "heading": "Piste introuvable.",
+    "body": "Ce lien n’est pas dans la playlist. Retourne sur la page de téléchargement All2K.",
+    "cta": "Retour à All2K"
+  }
+}
